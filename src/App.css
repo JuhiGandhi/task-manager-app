@@ -28,6 +28,21 @@
   color: #61dafb;
 }
 
+/* App.css */
+body {
+  font-family: 'Roboto', sans-serif;
+  background-color: #f4f5f7;
+}
+
+.MuiDrawer-paper {
+  box-shadow: none;
+}
+
+.MuiButton-root {
+  font-weight: 600;
+}
+
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
