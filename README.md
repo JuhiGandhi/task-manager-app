@@ -18,16 +18,22 @@ To get started with Task Board locally, follow these steps:
 1. **Clone the Repository**
 
    ```bash
-   git clone https://github.com/your-username/task-board.git
+   git clone https://github.com/JuhiGandhi/task-board.git
    
 2. **Navigate to the Project Directory**
+
+   ```bash
    cd task-board
    
 3. **Install Dependencies**
+
+   ```bash
    npm install
 
 ## Usage
 1. **Start the Development Server**
+
+   ```bash
     npm start
    
 ## Project Structure

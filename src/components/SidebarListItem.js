@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Collapse, Divider, List, ListItem, ListItemText, Typography, Dialog, DialogActions, DialogContent, DialogTitle, TextField } from '@mui/material';
+import { Collapse, Divider, List, ListItem, ListItemText, Typography } from '@mui/material';
 import ExpandLess from '@mui/icons-material/ExpandLess';
 import ExpandMore from '@mui/icons-material/ExpandMore';
-import AddIcon from '@mui/icons-material/Add';
 
 const SidebarListItem = () => {
   const [openBoards, setOpenBoards] = useState(false);
   const [projects, setProjects] = useState([
-    { name: 'Project 1', open: false, subprojects: ['Big Things to Do'] },
-    { name: 'Project 2', open: false, subprojects: ['Big Things to Do'] }
+    { name: 'Project', open: false, subprojects: ['Key Tasks'] },
   ]);
-  const [openDialog, setOpenDialog] = useState(false);
-  const [newProjectName, setNewProjectName] = useState('');
 
   const handleBoardsClick = () => {
     setOpenBoards(!openBoards);
@@ -22,17 +18,6 @@ const SidebarListItem = () => {
     const newProjects = [...projects];
     newProjects[index].open = !newProjects[index].open;
     setProjects(newProjects);
-  };
-
-  const handleAddProject = () => {
-    if (newProjectName) {
-      setProjects([
-        ...projects,
-        { name: newProjectName, open: false, subprojects: ['Big Things to Do'] }
-      ]);
-      setNewProjectName('');
-      setOpenDialog(false);
-    }
   };
 
   return (
@@ -72,35 +57,6 @@ const SidebarListItem = () => {
         </Collapse>
       </List>
       <Divider />
-      <Button
-        variant="contained"
-        color="primary"
-        startIcon={<AddIcon />}
-        sx={{ m: 2 }}
-        onClick={() => setOpenDialog(true)}
-      >
-        Add New Project
-      </Button>
-      <Dialog open={openDialog} onClose={() => setOpenDialog(false)}>
-        <DialogTitle>Add New Project</DialogTitle>
-        <DialogContent>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="project-name"
-            label="Project Name"
-            type="text"
-            fullWidth
-            variant="standard"
-            value={newProjectName}
-            onChange={(e) => setNewProjectName(e.target.value)}
-          />
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setOpenDialog(false)}>Cancel</Button>
-          <Button onClick={handleAddProject}>Add</Button>
-        </DialogActions>
-      </Dialog>
     </>
   );
 };

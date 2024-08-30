@@ -1,20 +1,7 @@
-// import React from 'react'
-// import TaskBoard from './TaskBoard'
-
-// const BoardPage = () => {
-//   return (
-//     <div>BoardPage
-//       <TaskBoard />
-//     </div>
-//   )
-// }
-
-// export default BoardPage
-
 import React, { useState } from 'react';
 import { Box, Button, Dialog, DialogActions, DialogContent, DialogTitle, TextField, MenuItem } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { addTask,updateTask } from '../redux/slices/listSlice'; // Import the addTask action
+import { addTask,updateTask } from '../redux/reducers/listSlice'; 
 import TaskBoard from './TaskBoard';
 
 const users = ['John', 'Bob', 'villains', 'Amelie'];
@@ -52,10 +39,9 @@ const BoardPage = () => {
   return (
     <Box
       sx={{
-        height: 'calc(100% - 64px)', // Fixed height for the entire board page
         display: 'flex',
         flexDirection: 'column',
-        backgroundColor: '#f4f4f9', // Light background for a cleaner look
+        backgroundColor: '#f4f4f9', 
       }}
     >
       <Box
@@ -66,20 +52,23 @@ const BoardPage = () => {
           padding: '20px',
         }}
       >
+        <div style={{display:"flex",justifyContent:'space-between',alignItems:"center"}}>
+        <h2>Key Tasks</h2>
         <Button
           variant="contained"
           color="primary"
           onClick={handleOpen}
-          sx={{ mb: 3 }}
+        
         >
         Add Task
         </Button>
+        </div>
         <TaskBoard setEditDialogOpen={setOpen} setNewTask={setNewTask} setCurrentListId={setCurrentListId} setEditingTask={setEditingTask}/>
       </Box>
 
       {/* Dialog for Adding New Task */}
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>Add New Task</DialogTitle>
+        <DialogTitle>{editingTask ? 'Update Task' : 'Add Task'}</DialogTitle>
         <DialogContent>
           <TextField
             fullWidth
@@ -97,7 +86,7 @@ const BoardPage = () => {
             variant="outlined"
             value={newTask.date}
             onChange={handleChange}
-            sx={{ mb: 2 }}
+            sx={{ mb: 2 }}    
           />
           <TextField
             select

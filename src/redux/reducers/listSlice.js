@@ -1,9 +1,5 @@
   // src/slices/listSlice.js
   import { createSlice } from '@reduxjs/toolkit';
-
-  // src/slices/listSlice.js
-
-
   // Helper function to load data from local storage
   const loadFromLocalStorage = () => {
     try {
@@ -29,6 +25,7 @@
   };
     
   const initialState = loadFromLocalStorage();
+  
   const listSlice = createSlice({
     name: 'lists',
     initialState,

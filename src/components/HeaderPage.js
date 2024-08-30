@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
-
 import { AppBar, Box, Toolbar, Typography, InputBase, MenuItem, Menu, IconButton, Drawer,  useMediaQuery } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import SearchIcon from '@mui/icons-material/Search';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import { useTheme } from '@mui/material/styles';
-import '../App.css'; 
 import SidebarListItem from './SidebarListItem';
+import '../App.css'; 
 
 
 const drawerWidth = 240;
@@ -121,6 +120,8 @@ export default function HeaderFile() {
           boxShadow: 'none',
           borderBottom: '1px solid #e0e0e0',
           zIndex: theme.zIndex.drawer + 1, 
+          height:'64px',
+          justifyContent:"center"
         }}
       >
         <Toolbar>
